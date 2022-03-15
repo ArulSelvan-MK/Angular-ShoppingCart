@@ -1,0 +1,39 @@
+<mat-toolbar class="mat-elevation-z3">
+    <mat-icon>shopping_cart</mat-icon>
+    <p>Buy Good</p>
+    <span class="spacer"></span>
+    <mat-icon>home</mat-icon>
+    <button class="titleButton" routerLink="">Home</button>
+  </mat-toolbar>
+
+<mat-card class="maincard">
+    <mat-card class="cart-card">
+        <mat-card-header>
+          <h1>Items in your cart!</h1>
+        </mat-card-header><br><br>
+        <mat-card-content>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Products</th> 
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let listProductInCart of cartProductsList">
+                        <td class="td-product">{{listProductInCart.productName}}</td>
+                        <td class="td-quantity">{{listProductInCart.selectedQuantity}}</td>                
+                  </tr> 
+                </tbody>
+                </table>
+  
+        </mat-card-content>
+          <button class="placeorder-button"mat-raised-button *ngIf="cartProductsList.length==0" disabled>Place Order</button>
+          <button (click)="placeOrder()" routerLink="" class="placeorder-button"mat-raised-button *ngIf="cartProductsList.length!=0">
+            Place Order</button>
+      </mat-card>
+  
+  
+
+</mat-card>
+    

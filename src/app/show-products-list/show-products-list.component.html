@@ -1,0 +1,40 @@
+<mat-toolbar class="mat-elevation-z3">
+    <mat-icon>shopping_cart</mat-icon>
+    <p style="font-size: 25px;">Buy Good</p>
+    <span class="spacer"></span>
+    <mat-icon>shopping_basket</mat-icon>
+    <button class="titleButton" routerLink="viewCart">View Cart</button>
+  </mat-toolbar>
+
+<mat-toolbar class="products-toolbar">
+    <p>Our Products</p>
+    <span class="spacer"></span>
+    <mat-form-field floatLabel="never" appearance="outline" style="font-size: 13px;">
+    <input matInput #searchProductsName placeholder="Search Products">
+    <button style="border:none; background-color: #f8f9fa;" matSuffix (click)="searchProduct(searchProductsName.value)">
+      <mat-icon>search</mat-icon>
+    </button>  
+    </mat-form-field>
+        
+</mat-toolbar>
+    
+<mat-card class="maincard">   
+    <div class="content">
+        <div fxLayout="row wrap" fxLayoutGap="50px grid">
+          <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let product of apiData">
+            <mat-card>
+                <h1 style="font-weight: 500;">{{product.productName}}</h1>      
+                <h3>Available Quantity:{{product.availableQuantity}}</h3> 
+                <h3>Quantity:
+                  <input #SelectQuantity class="input-quantity" type="number" value="1" min="1" max={{product.availableQuantity}}>
+                </h3>
+                <div fxLayout="row wrap" fxLayoutAlign="space-between">
+                  <button class="addcartbutton"mat-raised-button *ngIf="product.availableQuantity==0">Sold Out</button>
+                  <button (click)="addProductToCart(product.productId, SelectQuantity.value)" 
+                  class="addcartbutton"mat-raised-button *ngIf="product.availableQuantity!=0">Add to Cart</button>
+                </div>
+            </mat-card>
+          </div>
+        </div>
+      </div>    
+</mat-card>

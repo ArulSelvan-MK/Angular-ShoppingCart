@@ -1,0 +1,85 @@
+*:focus {
+    outline: none;
+}
+
+content {
+    padding: 16px;
+}
+
+.content > mat-card {
+    width: 200px;
+}
+
+.maincard{
+    padding: 5%;
+    box-shadow: none;
+    background-color: #f8f9fa;
+}
+
+.addcartbutton{
+    display: block;
+    border: none;
+    border-radius: 5px;
+    margin-left: 64%;
+    background-color: #4285F4;
+    font-weight: lighter;
+    color: white;
+}
+
+  .products-toolbar{
+      border: none;
+      background-color: #f8f9fa;
+      padding-top: 5%;
+      padding-left: 5%;
+      padding-right: 5%;
+      padding-bottom: 2%;
+      color: #060606;
+  }
+  .searchinputfield{
+      border: none;
+      background-color: #f8f9fa;
+      width: 60%;
+  }
+
+.product-card{
+    background-color: white;
+}
+
+mat-toolbar{
+    background-color:#4285F4;
+    color: white;
+}
+
+.titleButton{
+    color: white;
+    background-color: #4285F4; 
+    font-size: 17px;
+    border: none;
+    margin-right: 30px;
+    font-weight: bold;
+}
+
+.titleButton:hover{
+    cursor: pointer;
+}
+
+p{
+   margin-top: 10px;
+   margin-left: 10px; 
+   font-size: 30px;
+}
+.spacer {
+    flex: 1 1 auto;
+  }
+
+.input-quantity{
+    border: none;
+    background-color: #F5F5F5;
+    width:20%;
+    height: 30px;
+    border-radius: 5px;
+    margin-left: 5px;
+    text-align: center;
+}
+
+

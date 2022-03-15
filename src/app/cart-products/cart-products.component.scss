@@ -1,0 +1,114 @@
+mat-toolbar{
+    background-color:#4285F4;
+    color: white;
+}
+
+.titleButton{
+    color: white;
+    background-color: #4285F4;
+    border-color: whitesmoke;   
+    font-size: 17px;
+    border: none;
+    margin-right: 30px;
+    font-weight: bold;
+}
+.titleButton:hover{
+    cursor: pointer;
+}
+
+
+.maincard{
+    padding: 5%;
+    box-shadow: none;
+    background-color: #f8f9fa;
+    height: 100%;
+}
+
+p{
+   margin-top: 10px;
+   margin-left: 10px; 
+   font-size: 25px;
+}
+.spacer {
+    flex: 1 1 auto;
+  }
+
+.cart-card{
+    width: 800px;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;  
+    margin-top: 40px;
+    max-height: 900px;
+}
+
+table{
+    width: 520px;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: white;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-radius: 5px;
+    border-width: 2px;
+    max-height: 400px;
+    overflow-y:scroll;
+   }
+
+   th{
+    height: 50px;
+    text-align: center;
+    border-bottom: 1px solid #A9A9A9;
+  }
+  td{
+    text-align: center;
+    
+  }
+
+  tr{
+      height: 60px;
+      margin-left: 20px;
+  }
+
+
+  .td-product{
+    text-align: left;
+    padding-left: 20px;
+    width: 400px;
+    font-weight: 500;
+  }
+  
+  .td-quantity{
+    text-align: center;
+    width: 150px;
+    font-weight: 500;
+  }
+
+  h1{
+    font-weight:5px;
+    font-size: 35px;
+    margin-top: 15px;
+  }
+
+  .placeorder-button{
+    border: none;
+    border-radius: 5px;
+    margin-left: 64%;
+    margin-top: 10%;
+    background-color: #4285F4;
+    color: white;
+    margin-left: 87%;
+  }
+  ::-webkit-scrollbar {
+    width: 7px;
+    background: #f8f9fa;
+    border-radius: 150px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #4285F4;
+    border-radius: 30px;
+  }
