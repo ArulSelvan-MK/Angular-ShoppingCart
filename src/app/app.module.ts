@@ -19,13 +19,15 @@ import { CartProductsComponent } from './cart-products/cart-products.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AddNewProductComponent } from './add-new-product/add-new-product.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ShowProductsListComponent,
-    CartProductsComponent
+    CartProductsComponent,
+    AddNewProductComponent
   ],
   imports: [
     BrowserModule,

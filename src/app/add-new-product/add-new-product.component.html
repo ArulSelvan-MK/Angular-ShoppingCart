@@ -1,0 +1,25 @@
+<mat-toolbar class="mat-elevation-z3">
+    <mat-icon>shopping_cart</mat-icon>
+    <p>Buy Good</p>
+    <span class="spacer"></span>
+    <mat-icon>home</mat-icon>
+    <button class="titleButton" routerLink="">Home</button>
+  </mat-toolbar>
+
+<mat-card class="maincard">
+    <mat-card class="cart-card">
+        <mat-card-header>
+          <h1>Add Product</h1>
+        </mat-card-header><br>
+        <mat-form-field class="productName" appearance="outline">
+            <mat-label>Product Name</mat-label>
+            <input  matInput #nameOfProduct >
+      </mat-form-field>
+        <mat-form-field class="productName" appearance="outline">
+            <mat-label>Enter Stock Quantity</mat-label>
+            <input #quantityOfProduct matInput type="number" min="1" max="1000">
+      </mat-form-field>
+          <button (click)="addNewProduct(nameOfProduct.value,quantityOfProduct.value)" class="addProduct-button"mat-raised-button>Add Product</button>
+      </mat-card>
+</mat-card>
+    

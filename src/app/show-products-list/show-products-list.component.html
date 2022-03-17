@@ -2,6 +2,8 @@
     <mat-icon>shopping_cart</mat-icon>
     <p style="font-size: 25px;">Buy Good</p>
     <span class="spacer"></span>
+    <mat-icon>add_shopping_cart</mat-icon>
+    <button class="titleButton" routerLink="addNewProduct">Add Product</button>
     <mat-icon>shopping_basket</mat-icon>
     <button class="titleButton" routerLink="viewCart">View Cart</button>
   </mat-toolbar>
@@ -10,10 +12,8 @@
     <p>Our Products</p>
     <span class="spacer"></span>
     <mat-form-field floatLabel="never" appearance="outline" style="font-size: 13px;">
-    <input matInput #searchProductsName placeholder="Search Products">
-    <button style="border:none; background-color: #f8f9fa;" matSuffix (click)="searchProduct(searchProductsName.value)">
-      <mat-icon>search</mat-icon>
-    </button>  
+    <input matInput #searchProductsName placeholder="Search Products" (change)="searchProduct(searchProductsName.value)">
+      <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
         
 </mat-toolbar>

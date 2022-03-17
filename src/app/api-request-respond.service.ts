@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({providedIn: 'root'})
 export class ApiRequestRespondService {
@@ -14,12 +14,7 @@ export class ApiRequestRespondService {
     }
 
 
-    processPost(path : String, contentType : any, data : object) {
-        const httpOptions = {
-            headers: new HttpHeaders(
-                {'Content-Type': contentType}
-            )
-        };
-        return this.http.post(this.baseUrl + '' + path, httpOptions, data);
+    processPost(path : String, data : object) {
+        return this.http.post(this.baseUrl + '' + path, data);
     }
 }

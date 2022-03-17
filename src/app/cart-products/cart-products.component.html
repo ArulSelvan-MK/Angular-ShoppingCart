@@ -12,21 +12,24 @@
           <h1>Items in your cart!</h1>
         </mat-card-header><br><br>
         <mat-card-content>
-            <table>
+            <table mat-table>
                 <thead>
                     <tr>
-                        <th>Products</th> 
-                        <th>Quantity</th>
+                        <th style="font-weight:800" class="td-product">Products</th> 
+                        <th style="font-weight:800" class="td-quantity">Quantity</th>
+                        <!-- <th></th> -->
                     </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let listProductInCart of cartProductsList">
                         <td class="td-product">{{listProductInCart.productName}}</td>
-                        <td class="td-quantity">{{listProductInCart.selectedQuantity}}</td>                
+                        <td class="td-quantity">{{listProductInCart.selectedQuantity}}</td>  
+                        <!-- <td class="td-button"><button class="removeButton">
+                          <mat-icon>remove_circle</mat-icon></button></td>                  -->
                   </tr> 
                 </tbody>
-                </table>
-  
+                </table>  
+
         </mat-card-content>
           <button class="placeorder-button"mat-raised-button *ngIf="cartProductsList.length==0" disabled>Place Order</button>
           <button (click)="placeOrder()" routerLink="" class="placeorder-button"mat-raised-button *ngIf="cartProductsList.length!=0">

@@ -14,20 +14,24 @@ export class ShowProductsListComponent implements OnInit {
 
     constructor(public accessDisplayProductDataService : DisplayProductDataService) {
         this.accessDisplayProductDataService.behaviourProductData.subscribe((behaviourProductData : any) => {
-            this.apiData = behaviourProductData;
+            this.apiBackupData = behaviourProductData;
         });
         this.accessDisplayProductDataService.behaviourCartData.subscribe((behaviourCartData : any) => {
             this.cartProductsList = behaviourCartData;
         });
-        this.apiBackupData = this.apiData;
+        this.apiData = this.apiBackupData;
     }
 
     ngOnInit() {}
 
     searchProduct(filterType : String) {
-        let filterSearchResult = this.apiBackupData.filter((filterProduct : any) => 
-        filterProduct.productName == filterType);
-        this.apiData = [... filterSearchResult];
+        if(filterType.length>0){
+        this.apiData = [...this.apiBackupData.filter((filterProduct : any) => 
+        filterProduct.productName == filterType)];
+        }
+        else{
+            this.apiData=[...this.apiBackupData]
+        }
     }
 
     addProductToCart(productId : String, SelectQuantity : String) {

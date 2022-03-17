@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';    
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { ApiRequestRespondService } from './api-request-respond.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class DisplayProductDataService {
   cartList: any = [];
   behaviourProductData = new BehaviorSubject<any>(this.productList); 
   behaviourCartData = new BehaviorSubject<any>(this.cartList);  
-  constructor(public apiService: ApiRequestRespondService, private snackBar : MatSnackBar) { 
+  constructor(public apiService: ApiRequestRespondService, private snackBar : MatSnackBar,public routerLink:Router) { 
    this.getProductsData();
   }
 
@@ -21,6 +22,7 @@ export class DisplayProductDataService {
   }
 
   getProductsData(){
+    this.productList=[];
     this.apiService.processGet('Product').subscribe(
       responseData => {
         Object.values(responseData).map(
@@ -38,9 +40,6 @@ export class DisplayProductDataService {
       this.triggerToaster('minimum quantity should be 1',2);
       return;
     }
-    this.apiService.processPost('Product','application/json',individualProduct).subscribe(
-      responseData => {
-        if(responseData){
           for(let i=0; i<this.productList.length;i++){
             if(this.productList[i].productId==individualProduct.productId){
               if(this.productList[i].availableQuantity<individualProduct.selectedQuantity){
@@ -66,14 +65,38 @@ export class DisplayProductDataService {
           }
           this.behaviourProductData.next(this.productList);
           this.behaviourCartData.next(this.cartList);
+  }
 
-        }
-      },
-      error => {console.log("error")}
-    );
+  addNewProductService(newProduct : any){
+
+    if(!this.validateProductName(newProduct.productName)){
+      this.triggerToaster('Please enter a valid Username',2);
+      return;
+   }
+   if(newProduct.availableQuantity<=0){
+     this.triggerToaster('Quantity cannot be less than 1',2);
+     return;
+   }
+    this.apiService.processPost('Product', newProduct).subscribe(
+      responseData => {
+        this.getProductsData();
+        this.triggerToaster('Product added successfully',2);
+
+}   
+    )
+    this.routerLink.navigate(['']);
   }
 
   placeOrderService(){
+    this.cartList.map((product: any)=>{
+      product.quantity=product.selectedQuantity;
+      console.log(product)
+      this.apiService.processPost('OrderProducts', product).subscribe(
+        responseData => {
+          console.log(responseData)
+  }   
+      )
+    })
     this.cartList=[];
     this.behaviourCartData.next(this.cartList);
     this.triggerToaster('Order placed succrssfully',2);
