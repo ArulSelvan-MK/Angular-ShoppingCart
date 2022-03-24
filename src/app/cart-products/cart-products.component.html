@@ -17,15 +17,12 @@
                     <tr>
                         <th style="font-weight:800" class="td-product">Products</th> 
                         <th style="font-weight:800" class="td-quantity">Quantity</th>
-                        <!-- <th></th> -->
                     </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let listProductInCart of cartProductsList">
                         <td class="td-product">{{listProductInCart.productName}}</td>
                         <td class="td-quantity">{{listProductInCart.selectedQuantity}}</td>  
-                        <!-- <td class="td-button"><button class="removeButton">
-                          <mat-icon>remove_circle</mat-icon></button></td>                  -->
                   </tr> 
                 </tbody>
                 </table>  
